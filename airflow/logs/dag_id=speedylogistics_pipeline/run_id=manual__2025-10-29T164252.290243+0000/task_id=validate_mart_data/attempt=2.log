@@ -1,0 +1,25 @@
+[2025-10-29T16:48:24.941+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-29T16:48:24.976+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: speedylogistics_pipeline.validate_mart_data manual__2025-10-29T16:42:52.290243+00:00 [queued]>
+[2025-10-29T16:48:24.984+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: speedylogistics_pipeline.validate_mart_data manual__2025-10-29T16:42:52.290243+00:00 [queued]>
+[2025-10-29T16:48:24.986+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2025-10-29T16:48:25.000+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): validate_mart_data> on 2025-10-29 16:42:52.290243+00:00
+[2025-10-29T16:48:25.008+0000] {standard_task_runner.py:64} INFO - Started process 647 to run task
+[2025-10-29T16:48:25.013+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'speedylogistics_pipeline', 'validate_mart_data', 'manual__2025-10-29T16:42:52.290243+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/speedy.py', '--cfg-path', '/tmp/tmpq8wgt66u']
+[2025-10-29T16:48:25.016+0000] {standard_task_runner.py:91} INFO - Job 46: Subtask validate_mart_data
+[2025-10-29T16:48:25.093+0000] {task_command.py:426} INFO - Running <TaskInstance: speedylogistics_pipeline.validate_mart_data manual__2025-10-29T16:42:52.290243+00:00 [running]> on host cfa39535ab04
+[2025-10-29T16:48:25.193+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='bi@speedy.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='speedylogistics_pipeline' AIRFLOW_CTX_TASK_ID='validate_mart_data' AIRFLOW_CTX_EXECUTION_DATE='2025-10-29T16:42:52.290243+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-29T16:42:52.290243+00:00'
+[2025-10-29T16:48:25.195+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-29T16:48:25.208+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-10-29T16:48:25.210+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /workspace/gx/speedy && great_expectations checkpoint run validate_mart']
+[2025-10-29T16:48:25.225+0000] {subprocess.py:86} INFO - Output:
+[2025-10-29T16:48:29.434+0000] {subprocess.py:93} INFO - Calculating Metrics:   0%|          | 0/10 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/10 [00:00<?, ?it/s]Calculating Metrics:  20%|██        | 2/10 [00:00<00:00, 82.65it/s]Calculating Metrics:  20%|██        | 2/10 [00:00<00:00, 75.04it/s]Calculating Metrics:  40%|████      | 4/10 [00:00<00:00, 126.59it/s]Calculating Metrics:  40%|████      | 4/10 [00:00<00:00, 118.39it/s]Calculating Metrics:  50%|█████     | 5/10 [00:00<00:00, 144.73it/s]Calculating Metrics:  50%|█████     | 5/10 [00:00<00:00, 137.84it/s]Calculating Metrics:  90%|█████████ | 9/10 [00:00<00:00, 225.74it/s]Calculating Metrics:  90%|█████████ | 9/10 [00:00<00:00, 221.34it/s]Calculating Metrics: 100%|██████████| 10/10 [00:00<00:00, 226.20it/s]Calculating Metrics: 100%|██████████| 10/10 [00:00<00:00, 222.83it/s]Calculating Metrics: 100%|██████████| 10/10 [00:00<00:00, 222.45it/s]Calculating Metrics: 100%|██████████| 10/10 [00:00<00:00, 221.54it/s]
+[2025-10-29T16:48:31.447+0000] {subprocess.py:93} INFO - Validation succeeded!
+[2025-10-29T16:48:31.449+0000] {subprocess.py:93} INFO - 
+[2025-10-29T16:48:31.449+0000] {subprocess.py:93} INFO - Suite Name                                   Status     Expectations met
+[2025-10-29T16:48:31.450+0000] {subprocess.py:93} INFO - - validate_mart_data                         ✔ Passed   1 of 1 (100.0 %)
+[2025-10-29T16:48:32.596+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-10-29T16:48:32.601+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-29T16:48:32.688+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=speedylogistics_pipeline, task_id=validate_mart_data, run_id=manual__2025-10-29T16:42:52.290243+00:00, execution_date=20251029T164252, start_date=20251029T164824, end_date=20251029T164832
+[2025-10-29T16:48:32.756+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-10-29T16:48:32.799+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-29T16:48:32.801+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

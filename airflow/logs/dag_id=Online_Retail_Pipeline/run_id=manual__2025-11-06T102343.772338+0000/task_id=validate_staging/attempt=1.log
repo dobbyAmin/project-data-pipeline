@@ -1,0 +1,25 @@
+[2025-11-06T10:23:58.532+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-06T10:23:58.560+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Online_Retail_Pipeline.validate_staging manual__2025-11-06T10:23:43.772338+00:00 [queued]>
+[2025-11-06T10:23:58.568+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Online_Retail_Pipeline.validate_staging manual__2025-11-06T10:23:43.772338+00:00 [queued]>
+[2025-11-06T10:23:58.570+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2025-11-06T10:23:58.587+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): validate_staging> on 2025-11-06 10:23:43.772338+00:00
+[2025-11-06T10:23:58.592+0000] {standard_task_runner.py:64} INFO - Started process 5107 to run task
+[2025-11-06T10:23:58.595+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Online_Retail_Pipeline', 'validate_staging', 'manual__2025-11-06T10:23:43.772338+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/online_retail.py', '--cfg-path', '/tmp/tmpp68s10ih']
+[2025-11-06T10:23:58.597+0000] {standard_task_runner.py:91} INFO - Job 107: Subtask validate_staging
+[2025-11-06T10:23:58.664+0000] {task_command.py:426} INFO - Running <TaskInstance: Online_Retail_Pipeline.validate_staging manual__2025-11-06T10:23:43.772338+00:00 [running]> on host 4f974b2509a9
+[2025-11-06T10:23:58.749+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='bi@example.com' AIRFLOW_CTX_DAG_OWNER='DE-team' AIRFLOW_CTX_DAG_ID='Online_Retail_Pipeline' AIRFLOW_CTX_TASK_ID='validate_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-11-06T10:23:43.772338+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-06T10:23:43.772338+00:00'
+[2025-11-06T10:23:58.750+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-06T10:23:58.758+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-06T10:23:58.759+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /workspace/gx_retail && great_expectations checkpoint run raw_data_checkpoint']
+[2025-11-06T10:23:58.767+0000] {subprocess.py:86} INFO - Output:
+[2025-11-06T10:24:02.818+0000] {subprocess.py:93} INFO - Calculating Metrics:   0%|          | 0/34 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/34 [00:00<?, ?it/s]Calculating Metrics:   6%|▌         | 2/34 [00:00<00:00, 137.79it/s]Calculating Metrics:   6%|▌         | 2/34 [00:00<00:00, 76.91it/s] Calculating Metrics:  12%|█▏        | 4/34 [00:00<00:00, 91.84it/s]Calculating Metrics:  12%|█▏        | 4/34 [00:00<00:00, 71.01it/s]Calculating Metrics:  29%|██▉       | 10/34 [00:00<00:00, 171.27it/s]Calculating Metrics:  29%|██▉       | 10/34 [00:00<00:00, 147.92it/s]Calculating Metrics:  82%|████████▏ | 28/34 [00:00<00:00, 172.97it/s]Calculating Metrics:  82%|████████▏ | 28/34 [00:00<00:00, 172.97it/s]Calculating Metrics:  82%|████████▏ | 28/34 [00:00<00:00, 172.97it/s]Calculating Metrics: 100%|██████████| 34/34 [00:00<00:00, 172.97it/s]Calculating Metrics: 100%|██████████| 34/34 [00:00<00:00, 172.97it/s]Calculating Metrics: 100%|██████████| 34/34 [00:00<00:00, 172.97it/s]Calculating Metrics: 100%|██████████| 34/34 [00:00<00:00, 175.27it/s]
+[2025-11-06T10:24:09.148+0000] {subprocess.py:93} INFO - Validation succeeded!
+[2025-11-06T10:24:09.150+0000] {subprocess.py:93} INFO - 
+[2025-11-06T10:24:09.151+0000] {subprocess.py:93} INFO - Suite Name                                   Status     Expectations met
+[2025-11-06T10:24:09.151+0000] {subprocess.py:93} INFO - - validate_raw_data                          ✔ Passed   5 of 5 (100.0 %)
+[2025-11-06T10:24:09.758+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-06T10:24:09.759+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-06T10:24:09.783+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Online_Retail_Pipeline, task_id=validate_staging, run_id=manual__2025-11-06T10:23:43.772338+00:00, execution_date=20251106T102343, start_date=20251106T102358, end_date=20251106T102409
+[2025-11-06T10:24:09.799+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-11-06T10:24:09.821+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-06T10:24:09.824+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

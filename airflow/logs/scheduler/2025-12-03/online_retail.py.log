@@ -1,0 +1,7 @@
+[2025-12-03T06:58:05.818+0000] {processor.py:161} INFO - Started process (PID=81) to work on /opt/airflow/dags/online_retail.py
+[2025-12-03T06:58:05.819+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/online_retail.py for tasks to queue
+[2025-12-03T06:58:05.820+0000] {logging_mixin.py:188} INFO - [2025-12-03T06:58:05.820+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/online_retail.py
+[2025-12-03T06:58:06.266+0000] {processor.py:840} INFO - DAG(s) 'Online_Retail_Pipeline' retrieved from /opt/airflow/dags/online_retail.py
+[2025-12-03T06:58:06.287+0000] {logging_mixin.py:188} INFO - [2025-12-03T06:58:06.287+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-12-03T06:58:06.304+0000] {logging_mixin.py:188} INFO - [2025-12-03T06:58:06.304+0000] {dag.py:3947} INFO - Setting next_dagrun for Online_Retail_Pipeline to 2025-12-02 20:00:00+00:00, run_after=2025-12-03 20:00:00+00:00
+[2025-12-03T06:58:06.325+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/online_retail.py took 0.511 seconds

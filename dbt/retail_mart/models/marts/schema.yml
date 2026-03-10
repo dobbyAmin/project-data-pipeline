@@ -1,0 +1,63 @@
+version: 2
+
+sources:
+  - name: core
+    schema: core
+    tables:
+      - name: customers
+      - name: sales
+      - name: date
+      - name: stock
+
+models:
+  - name: dim_date
+    description: "Conformed date dimension for all marts"
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_customer
+    description: "Conformed customer dimension"
+    columns:
+      - name: customer_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_stock
+    description: "Conformed stock dimension"
+    columns:
+      - name: stock_key
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_sales
+    description: "Fact table for sales analysis (order item grain)"
+    columns:
+      - name: sales_key
+        tests:
+          - not_null
+          - unique
+      - name: invoice_no
+        tests: 
+          - not_null
+      - name: order_date_key
+        tests:
+          - not_null
+      - name: customer_key
+        tests:
+          - not_null
+      - name: stock_key
+        tests:
+          - not_null
+
+  - name: fct_customer_sales
+    description: "Fact table for customer analysis (customer grain)"
+    columns:
+      - name: customer_key
+        tests:
+          - not_null
+          - unique

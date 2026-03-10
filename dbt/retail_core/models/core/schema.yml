@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: staging
+    schema: staging
+    tables:
+      - name: raw_data
+
+models:
+  - name: customers
+    description: "Distinct customers extracted from the raw retail dataset"
+    columns:
+      - name: customer_id
+        description: "Customer identifier sourced from CustomerID"
+        tests:
+          - not_null
+          - unique
+      - name: country
+        description: "Customer country reported in the source data"
+
+  - name: date
+    description: "Calendar date dimension materialized from the retail source data"
+
+  - name: sales
+    description: "Distinct invoice activity from the retail dataset"
+    columns:
+      - name: invoice_no
+        description: "Invoice number sourced from InvoiceNo"
+        tests:
+          - not_null
+      - name: customer_id
+        description: "Identifier of the customer associated with the invoice"
+        tests:
+          - relationships:
+              to: ref('customers')
+              field: customer_id
+      - name: quantity
+        description: "Quantity recorded on the invoice line"
+      - name: invoice_date
+        description: "Invoice date converted to a date type"
+
+  - name: stock
+    description: "Distinct stock items sourced from the retail dataset"
+    columns:
+      - name: stock_code
+        description: "Stock code sourced from StockCode"
+        tests:
+          - not_null
+          - unique
+      - name: description
+        description: "Stock item description"
+      - name: unit_price
+        description: "Unit price associated with the stock item"

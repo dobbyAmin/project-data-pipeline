@@ -1,0 +1,24 @@
+retail_core:
+  outputs:
+    dev:
+      dbname: project_retail
+      host: dp_postgres
+      pass: dppass
+      port: 5432
+      schema: core
+      threads: 1
+      type: postgres
+      user: dpuser
+  target: dev
+retail_mart:
+  outputs:
+    dev:
+      dbname: project_retail
+      host: dp_postgres
+      pass: dppass
+      port: 5432
+      schema: mart
+      threads: 1
+      type: postgres
+      user: dpuser
+  target: dev

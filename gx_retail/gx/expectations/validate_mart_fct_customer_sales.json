@@ -1,0 +1,30 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "validate_mart_fct_customer_sales",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "customer_key",
+          "first_invoice_date_key",
+          "last_invoice_date_key",
+          "total_invoices",
+          "total_quantity"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "customer_key"
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.18.8"
+  }
+}

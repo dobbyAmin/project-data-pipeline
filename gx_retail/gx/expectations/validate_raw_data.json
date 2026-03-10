@@ -1,0 +1,65 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "validate_raw_data",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "InvoiceNo",
+          "StockCode",
+          "Description",
+          "Quantity",
+          "InvoiceDate",
+          "UnitPrice",
+          "CustomerID",
+          "Country"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "InvoiceNo"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "Quantity",
+        "min_value": 0,
+        "mostly": 0.95,
+        "strict_min": true
+      },
+      "meta": {
+        "notes": "KPI: Invalid Quantity (< 0 <= 5%)"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "UnitPrice",
+        "min_value": 0,
+        "strict_min": true
+      },
+      "meta": {
+        "notes": "KPI: UnitPrice <= 0"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "CustomerID"
+      },
+      "meta": {
+        "notes": "KPI: CustomerID must not be NULL"
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.18.8"
+  }
+}

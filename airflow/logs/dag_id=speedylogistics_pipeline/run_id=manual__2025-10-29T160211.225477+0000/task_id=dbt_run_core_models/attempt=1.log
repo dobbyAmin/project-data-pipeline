@@ -1,0 +1,33 @@
+[2025-10-29T16:07:21.455+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-29T16:07:21.476+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: speedylogistics_pipeline.dbt_run_core_models manual__2025-10-29T16:02:11.225477+00:00 [queued]>
+[2025-10-29T16:07:21.481+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: speedylogistics_pipeline.dbt_run_core_models manual__2025-10-29T16:02:11.225477+00:00 [queued]>
+[2025-10-29T16:07:21.482+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2025-10-29T16:07:21.489+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_core_models> on 2025-10-29 16:02:11.225477+00:00
+[2025-10-29T16:07:21.495+0000] {standard_task_runner.py:64} INFO - Started process 456 to run task
+[2025-10-29T16:07:21.497+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'speedylogistics_pipeline', 'dbt_run_core_models', 'manual__2025-10-29T16:02:11.225477+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/speedy.py', '--cfg-path', '/tmp/tmp_xh49ljd']
+[2025-10-29T16:07:21.499+0000] {standard_task_runner.py:91} INFO - Job 21: Subtask dbt_run_core_models
+[2025-10-29T16:07:21.545+0000] {task_command.py:426} INFO - Running <TaskInstance: speedylogistics_pipeline.dbt_run_core_models manual__2025-10-29T16:02:11.225477+00:00 [running]> on host 4cab26261ea4
+[2025-10-29T16:07:21.605+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='bi@speedy.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='speedylogistics_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_core_models' AIRFLOW_CTX_EXECUTION_DATE='2025-10-29T16:02:11.225477+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-29T16:02:11.225477+00:00'
+[2025-10-29T16:07:21.607+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-29T16:07:21.613+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-10-29T16:07:21.614+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /usr/app/speedy_core && dbt run --select core']
+[2025-10-29T16:07:21.623+0000] {subprocess.py:86} INFO - Output:
+[2025-10-29T16:07:21.624+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: cd: /usr/app/speedy_core: No such file or directory
+[2025-10-29T16:07:21.625+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-10-29T16:07:21.625+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-29T16:07:21.635+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-10-29T16:07:21.637+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=speedylogistics_pipeline, task_id=dbt_run_core_models, run_id=manual__2025-10-29T16:02:11.225477+00:00, execution_date=20251029T160211, start_date=20251029T160721, end_date=20251029T160721
+[2025-10-29T16:07:21.645+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 21 for task dbt_run_core_models (Bash command failed. The command returned a non-zero exit code 1.; 456)
+[2025-10-29T16:07:21.670+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-10-29T16:07:21.688+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-29T16:07:21.690+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

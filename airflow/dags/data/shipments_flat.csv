@@ -1,0 +1,6 @@
+shipment_id,shipment_date,origin_city,destination_city,delivery_status,driver_id,driver_name,vehicle_id,vehicle_type
+SHP001,2025-10-01,Bangkok,Chiang Mai,DELIVERED,DRV101,Somchai Wong,VEH001,Truck
+SHP002,2025-10-02,Chiang Mai,Khon Kaen,IN_TRANSIT,DRV102,Supaporn Dee,VEH002,Van
+SHP003,2025-10-03,Khon Kaen,Phuket,FAILED,DRV103,Anan Chai,VEH003,Motorcycle
+SHP004,2025-10-04,Bangkok,Nonthaburi,DELIVERED,DRV104,Kittisak Phon,VEH004,Truck
+SHP005,2025-10-05,Chiang Rai,Bangkok,IN_TRANSIT,DRV105,Suda Lek,VEH005,Van

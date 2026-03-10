@@ -1,0 +1,89 @@
+[2025-12-25T07:19:54.643+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-25T07:19:54.662+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Online_Retail_Pipeline.ingest_csv scheduled__2025-12-01T20:00:00+00:00 [queued]>
+[2025-12-25T07:19:54.667+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Online_Retail_Pipeline.ingest_csv scheduled__2025-12-01T20:00:00+00:00 [queued]>
+[2025-12-25T07:19:54.668+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 4
+[2025-12-25T07:19:54.677+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): ingest_csv> on 2025-12-01 20:00:00+00:00
+[2025-12-25T07:19:54.681+0000] {standard_task_runner.py:64} INFO - Started process 135 to run task
+[2025-12-25T07:19:54.683+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Online_Retail_Pipeline', 'ingest_csv', 'scheduled__2025-12-01T20:00:00+00:00', '--job-id', '125', '--raw', '--subdir', 'DAGS_FOLDER/online_retail.py', '--cfg-path', '/tmp/tmpk7rr5fnz']
+[2025-12-25T07:19:54.685+0000] {standard_task_runner.py:91} INFO - Job 125: Subtask ingest_csv
+[2025-12-25T07:19:54.746+0000] {task_command.py:426} INFO - Running <TaskInstance: Online_Retail_Pipeline.ingest_csv scheduled__2025-12-01T20:00:00+00:00 [running]> on host 62b83b726f28
+[2025-12-25T07:19:54.811+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='bi@example.com' AIRFLOW_CTX_DAG_OWNER='DE-team' AIRFLOW_CTX_DAG_ID='Online_Retail_Pipeline' AIRFLOW_CTX_TASK_ID='ingest_csv' AIRFLOW_CTX_EXECUTION_DATE='2025-12-01T20:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-01T20:00:00+00:00'
+[2025-12-25T07:19:54.812+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-25T07:19:55.479+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/online_retail.py:27 DtypeWarning: Columns (0) have mixed types. Specify dtype option on import or set low_memory=False.
+[2025-12-25T07:19:55.994+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-25T07:19:55.995+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: table "raw_data" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/online_retail.py", line 51, in ingest_csv_to_postgres
+    df_raw.to_sql(
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/generic.py", line 2987, in to_sql
+    return sql.to_sql(
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/sql.py", line 695, in to_sql
+    return pandas_sql.to_sql(
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/sql.py", line 1728, in to_sql
+    table = self.prep_table(
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/sql.py", line 1631, in prep_table
+    table.create()
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/sql.py", line 831, in create
+    self.pd_sql.drop_table(self.name, self.schema)
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/sql.py", line 1782, in drop_table
+    self.get_table(table_name, schema).drop(bind=self.connectable)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/schema.py", line 979, in drop
+    bind._run_ddl_visitor(ddl.SchemaDropper, self, checkfirst=checkfirst)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3228, in _run_ddl_visitor
+    conn._run_ddl_visitor(visitorcallable, element, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2211, in _run_ddl_visitor
+    visitorcallable(self.dialect, self, **kwargs).traverse_single(element)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/visitors.py", line 524, in traverse_single
+    return meth(obj, **kw)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/ddl.py", line 1102, in visit_table
+    self.connection.execute(DropTable(table))
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1380, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/ddl.py", line 80, in _execute_on_connection
+    return connection._execute_ddl(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1472, in _execute_ddl
+    ret = self._execute_context(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) table "raw_data" does not exist
+
+[SQL: 
+DROP TABLE staging.raw_data]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2025-12-25T07:19:56.020+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=Online_Retail_Pipeline, task_id=ingest_csv, run_id=scheduled__2025-12-01T20:00:00+00:00, execution_date=20251201T200000, start_date=20251225T071954, end_date=20251225T071956
+[2025-12-25T07:19:56.030+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 125 for task ingest_csv ((psycopg2.errors.UndefinedTable) table "raw_data" does not exist
+
+[SQL: 
+DROP TABLE staging.raw_data]
+(Background on this error at: https://sqlalche.me/e/14/f405); 135)
+[2025-12-25T07:19:56.060+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-12-25T07:19:56.078+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-25T07:19:56.080+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,43 @@
+[2025-10-29T16:49:01.066+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-29T16:49:01.091+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: speedylogistics_pipeline.dbt_run_mart_models manual__2025-10-29T16:48:39.793503+00:00 [queued]>
+[2025-10-29T16:49:01.098+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: speedylogistics_pipeline.dbt_run_mart_models manual__2025-10-29T16:48:39.793503+00:00 [queued]>
+[2025-10-29T16:49:01.099+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2025-10-29T16:49:01.109+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_mart_models> on 2025-10-29 16:48:39.793503+00:00
+[2025-10-29T16:49:01.115+0000] {standard_task_runner.py:64} INFO - Started process 808 to run task
+[2025-10-29T16:49:01.118+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'speedylogistics_pipeline', 'dbt_run_mart_models', 'manual__2025-10-29T16:48:39.793503+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/speedy.py', '--cfg-path', '/tmp/tmp980jpew2']
+[2025-10-29T16:49:01.120+0000] {standard_task_runner.py:91} INFO - Job 52: Subtask dbt_run_mart_models
+[2025-10-29T16:49:01.179+0000] {task_command.py:426} INFO - Running <TaskInstance: speedylogistics_pipeline.dbt_run_mart_models manual__2025-10-29T16:48:39.793503+00:00 [running]> on host cfa39535ab04
+[2025-10-29T16:49:01.247+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='bi@speedy.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='speedylogistics_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_mart_models' AIRFLOW_CTX_EXECUTION_DATE='2025-10-29T16:48:39.793503+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-29T16:48:39.793503+00:00'
+[2025-10-29T16:49:01.247+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-29T16:49:01.254+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-10-29T16:49:01.255+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /usr/app/speedy_mart && dbt run --select mart']
+[2025-10-29T16:49:01.266+0000] {subprocess.py:86} INFO - Output:
+[2025-10-29T16:49:03.381+0000] {subprocess.py:93} INFO - [0m16:49:03  Running with dbt=1.9.1
+[2025-10-29T16:49:03.563+0000] {subprocess.py:93} INFO - [0m16:49:03  Registered adapter: postgres=1.9.1
+[2025-10-29T16:49:03.943+0000] {subprocess.py:93} INFO - [0m16:49:03  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-10-29T16:49:03.943+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2025-10-29T16:49:03.943+0000] {subprocess.py:93} INFO - - models.speedy_mart.example
+[2025-10-29T16:49:04.068+0000] {subprocess.py:93} INFO - [0m16:49:04  Found 4 models, 3 sources, 434 macros
+[2025-10-29T16:49:04.071+0000] {subprocess.py:93} INFO - [0m16:49:04
+[2025-10-29T16:49:04.072+0000] {subprocess.py:93} INFO - [0m16:49:04  Concurrency: 1 threads (target='dev')
+[2025-10-29T16:49:04.073+0000] {subprocess.py:93} INFO - [0m16:49:04
+[2025-10-29T16:49:04.213+0000] {subprocess.py:93} INFO - [0m16:49:04  1 of 4 START sql table model mart_dims.dim_date ................................ [RUN]
+[2025-10-29T16:49:04.344+0000] {subprocess.py:93} INFO - [0m16:49:04  1 of 4 OK created sql table model mart_dims.dim_date ........................... [[32mSELECT 5[0m in 0.13s]
+[2025-10-29T16:49:04.346+0000] {subprocess.py:93} INFO - [0m16:49:04  2 of 4 START sql table model mart_dims.dim_driver .............................. [RUN]
+[2025-10-29T16:49:04.429+0000] {subprocess.py:93} INFO - [0m16:49:04  2 of 4 OK created sql table model mart_dims.dim_driver ......................... [[32mSELECT 5[0m in 0.08s]
+[2025-10-29T16:49:04.431+0000] {subprocess.py:93} INFO - [0m16:49:04  3 of 4 START sql table model mart_dims.dim_vehicle ............................. [RUN]
+[2025-10-29T16:49:04.501+0000] {subprocess.py:93} INFO - [0m16:49:04  3 of 4 OK created sql table model mart_dims.dim_vehicle ........................ [[32mSELECT 5[0m in 0.07s]
+[2025-10-29T16:49:04.506+0000] {subprocess.py:93} INFO - [0m16:49:04  4 of 4 START sql table model mart_logistics.fct_shipments ...................... [RUN]
+[2025-10-29T16:49:04.585+0000] {subprocess.py:93} INFO - [0m16:49:04  4 of 4 OK created sql table model mart_logistics.fct_shipments ................. [[32mSELECT 5[0m in 0.08s]
+[2025-10-29T16:49:04.604+0000] {subprocess.py:93} INFO - [0m16:49:04
+[2025-10-29T16:49:04.605+0000] {subprocess.py:93} INFO - [0m16:49:04  Finished running 4 table models in 0 hours 0 minutes and 0.53 seconds (0.53s).
+[2025-10-29T16:49:04.653+0000] {subprocess.py:93} INFO - [0m16:49:04
+[2025-10-29T16:49:04.655+0000] {subprocess.py:93} INFO - [0m16:49:04  [32mCompleted successfully[0m
+[2025-10-29T16:49:04.655+0000] {subprocess.py:93} INFO - [0m16:49:04
+[2025-10-29T16:49:04.656+0000] {subprocess.py:93} INFO - [0m16:49:04  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[2025-10-29T16:49:06.175+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-10-29T16:49:06.176+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-29T16:49:06.199+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=speedylogistics_pipeline, task_id=dbt_run_mart_models, run_id=manual__2025-10-29T16:48:39.793503+00:00, execution_date=20251029T164839, start_date=20251029T164901, end_date=20251029T164906
+[2025-10-29T16:49:06.220+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-10-29T16:49:06.238+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-29T16:49:06.239+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

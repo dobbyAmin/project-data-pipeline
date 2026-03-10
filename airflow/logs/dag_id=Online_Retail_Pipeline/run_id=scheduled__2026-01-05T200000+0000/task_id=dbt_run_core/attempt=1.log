@@ -1,0 +1,40 @@
+[2026-01-07T07:05:17.704+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-07T07:05:17.724+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Online_Retail_Pipeline.dbt_run_core scheduled__2026-01-05T20:00:00+00:00 [queued]>
+[2026-01-07T07:05:17.730+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Online_Retail_Pipeline.dbt_run_core scheduled__2026-01-05T20:00:00+00:00 [queued]>
+[2026-01-07T07:05:17.731+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2026-01-07T07:05:17.740+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_core> on 2026-01-05 20:00:00+00:00
+[2026-01-07T07:05:17.744+0000] {standard_task_runner.py:64} INFO - Started process 211 to run task
+[2026-01-07T07:05:17.746+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Online_Retail_Pipeline', 'dbt_run_core', 'scheduled__2026-01-05T20:00:00+00:00', '--job-id', '146', '--raw', '--subdir', 'DAGS_FOLDER/online_retail.py', '--cfg-path', '/tmp/tmpbmco4bo9']
+[2026-01-07T07:05:17.748+0000] {standard_task_runner.py:91} INFO - Job 146: Subtask dbt_run_core
+[2026-01-07T07:05:17.804+0000] {task_command.py:426} INFO - Running <TaskInstance: Online_Retail_Pipeline.dbt_run_core scheduled__2026-01-05T20:00:00+00:00 [running]> on host 62b83b726f28
+[2026-01-07T07:05:17.869+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='bi@example.com' AIRFLOW_CTX_DAG_OWNER='DE-team' AIRFLOW_CTX_DAG_ID='Online_Retail_Pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_core' AIRFLOW_CTX_EXECUTION_DATE='2026-01-05T20:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-05T20:00:00+00:00'
+[2026-01-07T07:05:17.870+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-07T07:05:17.877+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-07T07:05:17.878+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /usr/app/retail_core && dbt run --select core']
+[2026-01-07T07:05:17.885+0000] {subprocess.py:86} INFO - Output:
+[2026-01-07T07:05:20.362+0000] {subprocess.py:93} INFO - [0m07:05:20  Running with dbt=1.9.1
+[2026-01-07T07:05:20.634+0000] {subprocess.py:93} INFO - [0m07:05:20  Registered adapter: postgres=1.9.1
+[2026-01-07T07:05:26.086+0000] {subprocess.py:93} INFO - [0m07:05:26  Found 6 models, 10 data tests, 1 source, 550 macros
+[2026-01-07T07:05:26.096+0000] {subprocess.py:93} INFO - [0m07:05:26
+[2026-01-07T07:05:26.099+0000] {subprocess.py:93} INFO - [0m07:05:26  Concurrency: 1 threads (target='dev')
+[2026-01-07T07:05:26.103+0000] {subprocess.py:93} INFO - [0m07:05:26
+[2026-01-07T07:05:26.322+0000] {subprocess.py:93} INFO - [0m07:05:26  1 of 4 START sql table model core.customers .................................... [RUN]
+[2026-01-07T07:05:26.649+0000] {subprocess.py:93} INFO - [0m07:05:26  1 of 4 OK created sql table model core.customers ............................... [[32mSELECT 4342[0m in 0.32s]
+[2026-01-07T07:05:26.660+0000] {subprocess.py:93} INFO - [0m07:05:26  2 of 4 START sql table model core.date ......................................... [RUN]
+[2026-01-07T07:05:26.932+0000] {subprocess.py:93} INFO - [0m07:05:26  2 of 4 OK created sql table model core.date .................................... [[32mSELECT 305[0m in 0.27s]
+[2026-01-07T07:05:26.939+0000] {subprocess.py:93} INFO - [0m07:05:26  3 of 4 START sql table model core.stock ........................................ [RUN]
+[2026-01-07T07:05:27.198+0000] {subprocess.py:93} INFO - [0m07:05:27  3 of 4 OK created sql table model core.stock ................................... [[32mSELECT 8721[0m in 0.25s]
+[2026-01-07T07:05:27.202+0000] {subprocess.py:93} INFO - [0m07:05:27  4 of 4 START sql table model core.sales ........................................ [RUN]
+[2026-01-07T07:05:28.357+0000] {subprocess.py:93} INFO - [0m07:05:28  4 of 4 OK created sql table model core.sales ................................... [[32mSELECT 391144[0m in 1.15s]
+[2026-01-07T07:05:28.377+0000] {subprocess.py:93} INFO - [0m07:05:28
+[2026-01-07T07:05:28.378+0000] {subprocess.py:93} INFO - [0m07:05:28  Finished running 4 table models in 0 hours 0 minutes and 2.27 seconds (2.27s).
+[2026-01-07T07:05:28.497+0000] {subprocess.py:93} INFO - [0m07:05:28
+[2026-01-07T07:05:28.501+0000] {subprocess.py:93} INFO - [0m07:05:28  [32mCompleted successfully[0m
+[2026-01-07T07:05:28.504+0000] {subprocess.py:93} INFO - [0m07:05:28
+[2026-01-07T07:05:28.507+0000] {subprocess.py:93} INFO - [0m07:05:28  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[2026-01-07T07:05:31.254+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-07T07:05:31.255+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-07T07:05:31.287+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Online_Retail_Pipeline, task_id=dbt_run_core, run_id=scheduled__2026-01-05T20:00:00+00:00, execution_date=20260105T200000, start_date=20260107T070517, end_date=20260107T070531
+[2026-01-07T07:05:31.314+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-01-07T07:05:31.338+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-07T07:05:31.341+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
